@@ -127,12 +127,15 @@
             transform: translateX(-20px);
         }
 
+        /* Adjust animation delay for new items */
         .social-link-item:nth-child(1) { animation-delay: 0.1s; }
         .social-link-item:nth-child(2) { animation-delay: 0.2s; }
         .social-link-item:nth-child(3) { animation-delay: 0.3s; }
         .social-link-item:nth-child(4) { animation-delay: 0.4s; }
         .social-link-item:nth-child(5) { animation-delay: 0.5s; }
         .social-link-item:nth-child(6) { animation-delay: 0.6s; }
+        .social-link-item:nth-child(7) { animation-delay: 0.7s; } /* New delay for TikTok */
+
 
         @keyframes slideIn {
             from { opacity: 0; transform: translateX(-20px); }
@@ -169,6 +172,50 @@
         .telegram .icon { background: #0088cc; }
         .viber .icon { background: #7360f2; }
         .whatsapp .icon { background: #25d366; }
+        .tiktok .icon { /* TikTok has a distinct gradient/color combo */
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .tiktok .icon::before, .tiktok .icon::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            mix-blend-mode: screen; /* Blends colors nicely */
+        }
+        .tiktok .icon::before {
+            width: 80%;
+            height: 80%;
+            background-color: #69C9D0; /* Light blue */
+            animation: tiktok-shadow-left 1.5s ease-in-out infinite alternate;
+        }
+        .tiktok .icon::after {
+            width: 80%;
+            height: 80%;
+            background-color: #EE1D52; /* Red */
+            animation: tiktok-shadow-right 1.5s ease-in-out infinite alternate;
+            animation-delay: 0.75s; /* Offset for contrasting blend */
+        }
+        /* Override default color for TikTok icon text */
+        .tiktok .icon .fab {
+            color: #fff; /* Keep the actual icon white */
+            position: relative;
+            z-index: 1; /* Make sure the icon is on top of the pseudo-elements */
+        }
+
+        /* TikTok specific icon shadow animation */
+        @keyframes tiktok-shadow-left {
+            from { transform: translate(-55%, -50%); }
+            to { transform: translate(-45%, -50%); }
+        }
+        @keyframes tiktok-shadow-right {
+            from { transform: translate(-45%, -50%); }
+            to { transform: translate(-55%, -50%); }
+        }
+
 
         .footer {
             margin-top: 40px;
@@ -215,10 +262,10 @@
 
     <div class="profile-container">
         <h1>SAMANE SALAMI</h1>
-        <p class="tagline">بۆم گرنگ نیە کەس لە حاڵی نەپرسیم</p>
+        <p class="tagline">ڕوخسارم نە پێکەنینە نە توڕە نە گریانە !</p>
 
         <div class="social-links">
-            <a href="https://www.facebook.com/share/1FwAGTFDw9/" target="_blank" class="social-link-item facebook">
+            <a href="https://www.facebook.com/share/16mohZyHJu/" target="_blank" class="social-link-item facebook">
                 <span>فەیسبووک</span>
                 <span class="icon"><i class="fab fa-facebook-f"></i></span>
             </a>
@@ -226,11 +273,11 @@
                 <span>ئینستاگرام</span>
                 <span class="icon"><i class="fab fa-instagram"></i></span>
             </a>
-            <a href="https://www.snapchat.com/add/samane_salami?share_id=h6ETss2H_tI&locale=en-IQ" target="_blank" class="social-link-item snapchat">
+            <a href="https://www.snapchat.com/add/samane_salami?share_id=mZCXaAvom6s&locale=en-IQ" target="_blank" class="social-link-item snapchat">
                 <span>سناپچات</span>
                 <span class="icon"><i class="fab fa-snapchat-ghost"></i></span>
             </a>
-            <a href="https://t.me/@samane_salami" target="_blank" class="social-link-item telegram">
+            <a href="https://t.me/samane_salami" target="_blank" class="social-link-item telegram">
                 <span>تێلیگرام</span>
                 <span class="icon"><i class="fab fa-telegram-plane"></i></span>
             </a>
@@ -241,6 +288,10 @@
             <a href="https://wa.me/9647731537414" target="_blank" class="social-link-item whatsapp">
                 <span>واتسئاپ</span>
                 <span class="icon"><i class="fab fa-whatsapp"></i></span>
+            </a>
+            <a href="https://www.tiktok.com/@samane.salami?_r=1&_t=ZS-91ZIyfpc9CS" target="_blank" class="social-link-item tiktok">
+                <span>تیکتۆک</span>
+                <span class="icon"><i class="fab fa-tiktok"></i></span>
             </a>
         </div>
 </body>
