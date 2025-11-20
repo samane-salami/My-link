@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پڕۆفایلی سۆشیاڵ میدیاکانم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(45deg, #FF6B6B, #FFBBBB); /* Softer Red/Pink */
+            --secondary-gradient: linear-gradient(45deg, #4A00E0, #8E2DE2); /* Deep Purple to Violet */
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-dark: #2c3e50;
+            --text-light: #5f6c7c;
+            --border-radius-large: 25px;
+            --border-radius-small: 15px;
+        }
+
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: var(--text-dark);
+            direction: rtl;
+            text-align: center;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            position: relative;
+        }
+
+        /* Background animations */
+        .background-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .dot {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: floatAndFade 20s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        .dot:nth-child(1) { width: 60px; height: 60px; top: 10%; left: 5%; animation-delay: 0s; animation-duration: 15s; }
+        .dot:nth-child(2) { width: 40px; height: 40px; top: 30%; right: 10%; animation-delay: 3s; animation-duration: 18s; }
+        .dot:nth-child(3) { width: 80px; height: 80px; bottom: 20%; left: 15%; animation-delay: 6s; animation-duration: 20s; }
+        .dot:nth-child(4) { width: 50px; height: 50px; top: 50%; left: 25%; animation-delay: 9s; animation-duration: 16s; }
+        .dot:nth-child(5) { width: 70px; height: 70px; bottom: 5%; right: 20%; animation-delay: 12s; animation-duration: 22s; }
+
+        @keyframes floatAndFade {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+        }
+
+
+        .profile-container {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius-large);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            padding: 50px 30px;
+            max-width: 480px;
+            width: 90%;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 1; /* Bring content to front */
+            animation: scaleIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 2.5em;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .tagline {
+            font-size: 1.15em;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .social-link-item {
+            background-color: #f8fafd;
+            border: 1px solid #e6eaf0;
+            padding: 18px 25px;
+            border-radius: var(--border-radius-small);
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Space out icon and text */
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: slideIn 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .social-link-item:nth-child(1) { animation-delay: 0.1s; }
+        .social-link-item:nth-child(2) { animation-delay: 0.2s; }
+        .social-link-item:nth-child(3) { animation-delay: 0.3s; }
+        .social-link-item:nth-child(4) { animation-delay: 0.4s; }
+        .social-link-item:nth-child(5) { animation-delay: 0.5s; }
+        .social-link-item:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+
+        .social-link-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: transparent; /* Remove border on hover for gradient effect */
+        }
+
+        .social-link-item .icon {
+            font-size: 1.6em;
+            width: 35px; /* Fixed width for consistent alignment */
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-right: 15px; /* Spacing between icon and text */
+            color: #fff; /* Default icon color */
+        }
+        
+        .social-link-item:hover .icon {
+            filter: brightness(1.1); /* Slightly brighter icon on hover */
+        }
+
+        /* Specific styles for each social media platform */
+        .facebook .icon { background: #3b5998; }
+        .instagram .icon { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+        .snapchat .icon { background: #fffc00; color: #333; } /* Special case for Snapchat contrast */
+        .telegram .icon { background: #0088cc; }
+        .viber .icon { background: #7360f2; }
+        .whatsapp .icon { background: #25d366; }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: var(--text-light);
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .profile-container {
+                padding: 40px 20px;
+                border-radius: var(--border-radius-small);
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .tagline {
+                font-size: 1em;
+                margin-bottom: 25px;
+            }
+            .social-link-item {
+                padding: 15px 20px;
+                font-size: 1em;
+                flex-direction: row-reverse; /* Icons on right for small screens */
+            }
+            .social-link-item .icon {
+                margin-right: 0;
+                margin-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background dots -->
+    <div class="background-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <div class="profile-container">
+        <h1>SAMANE SALAMI</h1>
+        <p class="tagline">بۆم گرنگ نیە کەس لە حاڵی نەپرسیم</p>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/share/1FwAGTFDw9/" target="_blank" class="social-link-item facebook">
+                <span>فەیسبووک</span>
+                <span class="icon"><i class="fab fa-facebook-f"></i></span>
+            </a>
+            <a href="https://www.instagram.com/samane__salami?igsh=MTJtZnpiNTd5Z2JoZQ==" target="_blank" class="social-link-item instagram">
+                <span>ئینستاگرام</span>
+                <span class="icon"><i class="fab fa-instagram"></i></span>
+            </a>
+            <a href="https://www.snapchat.com/add/samane_salami?share_id=h6ETss2H_tI&locale=en-IQ" target="_blank" class="social-link-item snapchat">
+                <span>سناپچات</span>
+                <span class="icon"><i class="fab fa-snapchat-ghost"></i></span>
+            </a>
+            <a href="https://t.me/@samane_salami" target="_blank" class="social-link-item telegram">
+                <span>تێلیگرام</span>
+                <span class="icon"><i class="fab fa-telegram-plane"></i></span>
+            </a>
+            <a href="viber://chat?number=%2B9647731537414" target="_blank" class="social-link-item viber">
+                <span>ڤایبەر</span>
+                <span class="icon"><i class="fab fa-viber"></i></span>
+            </a>
+            <a href="https://wa.me/9647731537414" target="_blank" class="social-link-item whatsapp">
+                <span>واتسئاپ</span>
+                <span class="icon"><i class="fab fa-whatsapp"></i></span>
+            </a>
+        </div>
+</body>
+</html>
